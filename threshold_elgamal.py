@@ -197,11 +197,10 @@ def eval_pol(x, a, q):
 # returns list of key shares in Zq and a verification key
 #
 def share_key(x, k, n, q, g):
-    f = np.array(x)
+    f = []
     for i in range(k - 1):
-        f = np.append(f, random.randint(2, q - 1))
-
-    f = [4, 3, x]
+        f.append(random.randint(2, q - 1))
+    f.append(x)
     shares = []
     verificationKey = []
     for j in range(1, n+1):
